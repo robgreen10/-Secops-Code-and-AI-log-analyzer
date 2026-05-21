@@ -1,0 +1,5 @@
+2026-05-19 20:12:01 CRITICAL: User admin failed login from 192.168.1.45. Session rejected.
+2026-05-19 20:12:05 INFO: User jsmith successfully logged in from 10.0.4.12.
+2026-05-19 20:12:12 WARNING: High memory utilization detected on core-switch-01.
+2026-05-19 20:12:18 CRITICAL: User admin failed login from 192.168.1.45. Session rejected.
+2026-05-19 20:12:30 ALERT: Connection attempt to blocked malicious database at 172.16.254.1.
