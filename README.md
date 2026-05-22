@@ -1,8 +1,6 @@
 # Hybrid SecOps Ingestion & AI Remediator
 
-This project is a high-performance, cost-optimized threat analysis model designed to triage, sanitize, and remediate system authentication logs. 
-By balancing deterministic local code execution with asynchronous cloud intelligence, the pipeline achieves real-time threat containment while keeping 
-API overhead exceptionally low.
+This project is a hybrid AI-powered threat analysis pipeline designed to triage, sanitize, and remediate authentication logs in real time while minimizing cloud API costs.
 
 ```
 [Raw Logs] ──> [Local Python Engine] ──(If Severity >= High)──> [Token-Optimized LLM] ──> [Strategic Advice]
@@ -11,13 +9,13 @@ API overhead exceptionally low.
 
 ```
 
-Core Architecture & Operational Impact
 
-The local execution layer utilizes native Python and regex to ingest raw log streams from a file on your local host, classify by event severity, and redacts sensitive telemetry like internal IP addresses on the host machine. 
-If a critical or high threat signature is matched, this layer executes immediate, zero-latency containment playbooks such as locking privilege tokens or isolating 
-affected subnets—without waiting for a network response.
+The system combines deterministic local Python execution with targeted LLM-based analysis to separate immediate threat containment from deeper semantic investigation. A local Python engine ingests raw authentication logs, classifies event severity using regex and rule-based detection logic, and redacts sensitive telemetry such as internal IP addresses before any external processing occurs.
 
-The LLM acts as a senior security analyst, initiating a lean API call to an LLM when critical or high threat thresholds are breached. 
-Instead of wasting budget on routine log noise, the AI reviews a highly compressed, token-optimized payload to provide long-term architectural fixes and compliance-driven remediation strategies.
+For critical or high-severity detections, the pipeline triggers immediate local response actions such as privilege restriction and network isolation without waiting for cloud inference. Only high-risk events are forwarded to the LLM through a compressed, token-efficient payload, where the model generates contextual remediation guidance, investigation summaries, and long-term security recommendations.
 
-By separating immediate tactical actions from deep semantic reasoning, this hybrid framework dramatically reduces MTTD (Mean Time to Detect) and MTTR (Mean Time to Respond) metrics. Filtering data locally before transmission ensures strict data privacy sovereignty and slashes cloud infrastructure consumption costs.
+This architecture reduces unnecessary API usage, lowers response latency, and improves operational efficiency by combining fast local execution with AI-assisted analysis. By filtering and sanitizing telemetry before transmission, the framework also supports stronger privacy controls and reduced cloud processing overhead.
+
+Technologies Used:
+Python • Regex • Azure OpenAI/OpenAI API • Security Automation • Log Analysis • Threat Detection • AI-Assisted Incident Response
+
